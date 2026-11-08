@@ -34,9 +34,9 @@ Per rifare i calcoli con ipotesi diverse, modifica le costanti in testa allo scr
 python3 calcoli/dimensionamento_rete.py
 ```
 
-## Documento di lavoro
+## Fonte unica
 
-La specifica viene discussa e commentata qui: <https://claude.ai/artifact/5Qhz5CXtqSfEfKu2dLEvFj>. Il file in `docs/` ne è la copia di riferimento al 8 novembre 2026.
+Questo repository è l'unica fonte aggiornata della specifica: le modifiche si fanno qui, in `docs/specifica-tecnica.md`. Il documento di lavoro iniziale su Claude è archiviato e non viene più aggiornato.
 
 ## Progetto collegato
 

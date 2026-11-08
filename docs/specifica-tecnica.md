@@ -2,7 +2,7 @@
 
 8 novembre 2026 · Luca – Versus Lux
 
-Versione esportata dal documento di lavoro: <https://claude.ai/artifact/5Qhz5CXtqSfEfKu2dLEvFj>
+Fonte unica della specifica: le modifiche si fanno in questo file. La storia delle revisioni è quella dei commit del repository.
 
 ## Obiettivo e ambito
 
