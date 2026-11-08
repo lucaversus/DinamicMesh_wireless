@@ -27,6 +27,8 @@ Progetto Versus Lux di una nuova linea di apparecchi RGB per facciate, ponti e g
 | [`docs/specifica-tecnica.md`](docs/specifica-tecnica.md) | Specifica tecnica completa: requisiti, architettura, hardware, antenne, protocollo, latenza, dimensionamento, software, certificazioni, piano di prove, scelte aperte |
 | [`docs/schema-rete-mesh.svg`](docs/schema-rete-mesh.svg) | Schema della rete |
 | [`calcoli/dimensionamento_rete.py`](calcoli/dimensionamento_rete.py) | Script di calcolo di latenza e occupazione del canale (facciata 10×10 m) |
+| [`reports/Analisi concorrenza illuminazione dinamica.md`](<reports/Analisi concorrenza illuminazione dinamica.md>) | Ricerca di mercato: concorrenti wireless e cablati, progetti realizzati, tecniche costruttive, prezzi, implicazioni per Versus Lux |
+| [`research_notes/Analisi concorrenza illuminazione dinamica/`](<research_notes/Analisi concorrenza illuminazione dinamica/>) | Note di ricerca dettagliate con tutte le fonti, per filone |
 
 Per rifare i calcoli con ipotesi diverse, modifica le costanti in testa allo script ed eseguilo:
 
