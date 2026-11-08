@@ -104,12 +104,12 @@ In rete viaggiano comandi brevi e un sincronismo orario, ripetuti da un apparecc
 - **Esecuzione differita**: ogni comando porta l'istante di esecuzione, abbastanza nel futuro da coprire tutti i salti. Tutti i nodi cambiano scena insieme.
 - **Coordinatore**: un nodo tiene l'orologio di riferimento e il calendario e lancia scene e sequenze programmate. Se smette di rispondere, un altro nodo prende il ruolo.
 - **Sincronismo multi-salto**: l'orario si propaga nodo per nodo e ogni salto compensa il proprio ritardo. I nodi restano allineati anche se perdono qualche pacchetto.
-- **Affidabilità**: ogni nodo sente 2-3 vicini, quindi un messaggio ha più strade. I comandi importanti vengono ripetuti e il coordinatore verifica chi non ha risposto.
+- **Affidabilità**: ogni nodo sente 2-3 vicini, quindi un messaggio ha più strade. I comandi importanti vengono ripetuti e il coordinatore verifica chi non ha risposto. Le regole contro le interferenze sono nella sezione "Coesistenza a 2,4 GHz".
 - **Ingresso DMX**: il bridge opzionale converte i canali DMX/Art-Net/sACN in comandi di livello per gruppi di nodi. Se i valori cambiano lentamente, basta inviare le variazioni.
 - **Distribuzione scene**: scene, sequenze e calendario si caricano sui nodi in anticipo, con controllo di integrità, e restano in memoria anche senza alimentazione.
 - **Diagnostica**: ogni nodo riporta temperatura, ore di funzionamento, qualità del segnale verso i vicini, versione firmware ed errori, con funzioni simili a RDM.
 - **Aggiornamenti OTA**: il firmware si propaga nella rete a blocchi, viene verificato e si attiva solo dopo controllo; in caso di problemi il nodo torna alla versione precedente. Su reti con molti salti è lento, quindi si pianifica.
-- **Sicurezza**: traffico cifrato e autenticato, chiavi diverse per ogni impianto, nessuna password predefinita uguale per tutti, firmware firmato.
+- **Sicurezza**: traffico cifrato e autenticato, chiavi diverse per ogni impianto, nessuna password predefinita uguale per tutti, firmware firmato. ESP-NOW non cifra i messaggi inviati a tutti (broadcast) ([documentazione Espressif](https://docs.espressif.com/projects/esp-idf/zh_CN/v5.5/esp32c5/api-reference/network/esp_now.html)): la cifratura e l'autenticazione si fanno nel firmware, a livello applicativo (16 byte per pacchetto nei calcoli di dimensionamento).
 - **Trasporto radio**: ESP-NOW a 2,4 GHz (vedi la sezione Latenza e trasporto radio). Il protocollo applicativo è indipendente dal trasporto.
 
 ## Latenza e trasporto radio
@@ -170,6 +170,44 @@ Il canale è condiviso con il Wi-Fi dell'edificio: obiettivo sotto il 30-40% di 
 - Interferenze delle reti Wi-Fi intorno alla facciata.
 - Precisione reale della sincronizzazione tra nodi (stima: circa 1 ms).
 
+## Coesistenza a 2,4 GHz
+
+Il sistema è progettato per tollerare la perdita di pacchetti, non per evitarla: un'interferenza deve produrre al peggio un apparecchio in ritardo di un secondo, mai un apparecchio fermo sul colore sbagliato.
+
+**Sorgenti di interferenza tipiche su una facciata**
+
+| Sorgente | Peso | Motivo |
+| --- | --- | --- |
+| Wi-Fi dell'edificio e dei vicini | Alto | Occupa 20-40 MHz su un canale tutto il giorno. Problema del nodo nascosto: l'apparecchio in facciata non sente l'access point interno e trasmette insieme a lui |
+| Telecamere e ponti radio Wi-Fi esterni | Molto alto, se presenti | Video in continuo, ad alta potenza, all'aperto |
+| Altri sistemi wireless per luci (CRMX, W-DMX) durante gli eventi | Medio | Saltano su tutta la banda e occupano un po' di ogni canale |
+| Bluetooth, Zigbee | Basso | Pacchetti brevi, frequenze sempre diverse |
+| Traffico proprio | Variabile | Nel controllo dal vivo con 400 apparecchi a 16 bit si stima fino al 77% del canale (sezione Dimensionamento) |
+
+Un muro pieno attenua il Wi-Fi interno e gli apparecchi sono rivolti verso l'esterno; sulle facciate in vetro questo vantaggio si perde.
+
+**Difese, in ordine di priorità**
+
+1. **Protocollo a stato, che si ripara da solo.** Ogni comando descrive lo stato da raggiungere all'istante T, non una variazione: ricevere due volte lo stesso comando non fa danni. Il coordinatore ripete lo stato completo a intervalli regolari (proposta: ogni secondo), così un nodo che ha perso un comando si riallinea al giro successivo.
+2. **Ripetizioni distanziate nel tempo.** Ogni comando di scena viene ripetuto 3-5 volte a intervalli casuali dentro la finestra che precede l'esecuzione (circa 50 ms). Le interferenze Wi-Fi arrivano a raffiche, quindi le copie distanziate hanno più probabilità di passare. La mesh aggiunge diversità di percorso: ogni nodo riceve lo stesso comando da 2-3 vicini.
+
+    | Perdita per singolo pacchetto | 3 ripetizioni | 5 ripetizioni |
+    | --- | --- | --- |
+    | 10% | 0,1% | 0,001% |
+    | 20% | 0,8% | 0,03% |
+    | 40% | 6,4% | 1% |
+
+    Valori calcolati con perdite indipendenti; con interferenze a raffica sono ottimistici e vanno misurati.
+3. **Canale scelto con una misura sul posto.** In messa in servizio gli apparecchi misurano l'occupazione di ogni canale e l'app la mostra all'installatore. In Europa sono ammessi i canali 1-13; i canali 12 e 13 sono spesso liberi. Il cambio di canale è coordinato: il coordinatore invia "dal tempo T si passa al canale X" e tutti cambiano insieme. Un nodo che perde la rete torna a un canale di ritrovo prestabilito.
+4. **Diagnostica continua della radio.** Ogni nodo riporta potenza ricevuta dai vicini e pacchetti persi. Il coordinatore cambia canale quando la qualità scende sotto una soglia, prima che il problema diventi visibile. I dati restano disponibili come documentazione della qualità dell'impianto.
+5. **Antenna e livello fisico.** Antenna rivolta verso l'esterno e lungo la facciata, non verso l'interno dell'edificio. La velocità radio (1 Mbps più robusto, 6 Mbps meno tempo sul canale) si sceglie con le prove. Per i ponti lunghi si valuta la modalità Long Range di ESP-NOW: in una prova pubblicata sul blog sviluppatori Espressif, in campo aperto ha mantenuto quasi il 100% dei pacchetti fino a 450 m, contro i 150 m di ESP-NOW standard ([Espressif developer blog](https://developer.espressif.com/blog/esp-now-for-outdoor-applications/), prova di terzi con antenna integrata).
+6. **Salto di frequenza (seconda versione).** Alternanza di 2-3 canali secondo un calendario comune, sul modello del salto adattivo di CRMX ([LumenRadio](https://lumenradio.com/how-to-win-at-wireless/)). Da sviluppare solo se le prove mostrano che il canale unico non basta.
+
+**Vincoli normativi e piano B**
+
+- **EN 300 328**: sopra 10 dBm di potenza irradiata un apparecchio a 2,4 GHz deve essere adattivo (ascolto del canale prima di trasmettere) oppure restare sotto il 10% di occupazione del canale ([Intertek](https://www.intertek.com/ict/etsi-en-300-328/medium-utilization)). ESP-NOW usa l'accesso al canale del Wi-Fi e dovrebbe rientrare fra gli adattivi: da confermare con il laboratorio, in particolare per il controllo dal vivo.
+- **5 GHz**: l'ESP32-C5 è dual band, ma la documentazione ESP-NOW per questo chip elenca solo i canali 0-14 e avverte di non essere ancora aggiornata ([documentazione Espressif](https://docs.espressif.com/projects/esp-idf/zh_CN/v5.5/esp32c5/api-reference/network/esp_now.html)). In esterno in Europa i 5 GHz comportano vincoli DFS. Resta un piano B da verificare, non una scelta.
+
 ## Software ed ecosistema
 
 Il software è composto da tre parti, sviluppabili con strumenti open source e scritte in buona parte da Claude insieme al team.
@@ -188,7 +226,7 @@ Con una radio a bordo, ogni apparecchio ricade nella direttiva RED e non solo ne
 
 | Ambito | Riferimento | Nota per questo progetto |
 | --- | --- | --- |
-| Radio | Direttiva RED 2014/53/UE; EN 300 328 (2,4 GHz) | Restando sui 2,4 GHz basta EN 300 328 e si evitano DFS e prove a 5 GHz |
+| Radio | Direttiva RED 2014/53/UE; EN 300 328 (2,4 GHz) | Restando sui 2,4 GHz basta EN 300 328 e si evitano DFS e prove a 5 GHz. Sopra 10 dBm serve un accesso al canale adattivo o un'occupazione sotto il 10% (sezione Coesistenza) |
 | Cybersicurezza radio | Atto delegato RED, norme EN 18031 | Obbligatorio per dispositivi radio connessi |
 | Cybersicurezza prodotto | Cyber Resilience Act | Obblighi in arrivo: aggiornamenti e gestione vulnerabilità vanno previsti da subito |
 | Sicurezza elettrica | EN 60598 (apparecchi di illuminazione) | Compresi i gradi IP dichiarati |
@@ -214,10 +252,18 @@ Si parte da schede di sviluppo commerciali (ESP32-C5-DevKitC-1, circa 15 dollari
 1. **Banco**: 5 nodi su scheda di sviluppo, con LED RGB+W+A di prova. Si verificano inoltro mesh, scene, sincronismo, ruolo di coordinatore e collegamento Wi-Fi con l'app.
 2. **Catena lunga**: nodi disposti in fila, con potenza radio ridotta per simulare molti salti. Si misurano latenza per salto, scarto di sincronizzazione e tenuta quando si spegne un nodo.
 3. **Prova di portata**: 10-20 nodi in esterno, a distanze e altezze tipiche, vicino a strutture metalliche. Si confrontano antenna interna ed esterna e si fissa la distanza massima tra apparecchi vicini.
-4. **Prova di robustezza**: nodi spenti a caso, coordinatore staccato, interferenze. La rete deve riallinearsi da sola e un altro nodo deve prendere il ruolo di coordinatore.
-5. **Bridge DMX**: collegamento a una console reale via DMX e Art-Net.
-6. **Primo prototipo dedicato**: scheda nodo con modulo certificato, driver LED a 5 canali e protezioni, montata in un corpo reale.
-7. **Pre-prove in casa e certificazione**: misure preliminari EMC, poi un solo passaggio in laboratorio.
+4. **Prova di interferenza**: sullo stesso banco si misura la perdita di pacchetti e lo stato finale della luce in cinque casi:
+    1. access point Wi-Fi sullo stesso canale, con traffico crescente fino alla saturazione;
+    2. lo stesso access point su un canale adiacente;
+    3. nodo nascosto: access point dietro un muro, non udibile dai nodi in facciata;
+    4. sorgente continua: telecamera Wi-Fi che trasmette video;
+    5. ripristino: riallineamento automatico dello stato e cambio di canale coordinato.
+
+    I risultati fissano numero di ripetizioni, velocità radio, periodo di rinfresco dello stato e soglia di cambio canale.
+5. **Prova di robustezza**: nodi spenti a caso, coordinatore staccato. La rete deve riallinearsi da sola e un altro nodo deve prendere il ruolo di coordinatore.
+6. **Bridge DMX**: collegamento a una console reale via DMX e Art-Net.
+7. **Primo prototipo dedicato**: scheda nodo con modulo certificato, driver LED a 5 canali e protezioni, montata in un corpo reale.
+8. **Pre-prove in casa e certificazione**: misure preliminari EMC, poi un solo passaggio in laboratorio.
 
 ## Scelte aperte
 
@@ -232,3 +278,6 @@ Si parte da schede di sviluppo commerciali (ESP32-C5-DevKitC-1, circa 15 dollari
 - [ ] Scelta del laboratorio per pre-prove e certificazione, e conferma dei casi di autodichiarazione per EN 18031
 - [ ] Router o access point da proporre nel kit connesso, e router 4G per siti senza rete (ponti)
 - [ ] Soluzione d'antenna per ogni famiglia di prodotto (tappo plastico, antenna passante, nodo esterno resinato)
+- [ ] Coesistenza a 2,4 GHz: numero di ripetizioni, periodo di rinfresco dello stato, velocità radio e soglia di cambio canale, dopo la prova di interferenza (passo 4)
+- [ ] Conferma con il laboratorio che ESP-NOW rientra fra gli apparecchi adattivi secondo EN 300 328, anche nel controllo dal vivo
+- [ ] Modalità Long Range per i ponti lunghi e funzionamento di ESP-NOW a 5 GHz sull'ESP32-C5 (piano B), da verificare con prove
