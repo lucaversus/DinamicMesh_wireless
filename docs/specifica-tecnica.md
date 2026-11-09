@@ -93,6 +93,7 @@ L'elettronica dell'apparecchio si divide in due schede:
 
 - **Collegamento**: bus RS-485 a 2 fili più l'alimentazione.
 - **Stessa scheda luce** per proiettori fissi e spot motorizzati: un solo progetto, un solo firmware, una sola famiglia di prove.
+- **Zoom motorizzato opzionale**: la scheda luce ha un terzo driver (TMC2209) per un piccolo motore che sposta l'ottica, montato solo nelle versioni zoom. Lo zoom è quindi disponibile anche sui proiettori fissi, senza scheda motori.
 - **Alimentazione proposta: 48 V a tensione costante.** La Vesta D13 lavora a 33-36 V per canale con anodo comune, quindi servono regolatori **buck della classe 60 V** (l'AL8860 si ferma a 40 V, serve la classe dell'AL8862).
 - **Niente regolatori lineari**: scalderebbero troppo il corpo.
 - **Corrente proposta**: 1 A per canale, con la somma limitata a 30 W dal firmware.
