@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<title>Sintesi delle ricerche – Linea RGB architetturale wireless</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --az:#22A8DD; --az2:#e8f6fc; --ink:#1d1d1b; --ink2:#4a4a46; --mut:#8a8a84; --line:#dcdcd6; --warn:#c2410c; --ok:#15803d; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Inter, "DejaVu Sans", sans-serif; color: var(--ink); background:#fff; }
+  .page { width:210mm; height:297mm; padding:13mm 14mm 11mm; position:relative; overflow:hidden; page-break-after:always; display:flex; flex-direction:column; }
+  .page:last-child { page-break-after:auto; }
+  .top { display:flex; justify-content:space-between; align-items:baseline; gap:6mm; white-space:nowrap; border-bottom:2.5px solid var(--az); padding-bottom:3mm; }
+  .num { font-size:11pt; font-weight:700; color:var(--az); letter-spacing:.04em; }
+  .proj { font-size:8.5pt; color:var(--mut); }
+  h1 { font-size:22pt; line-height:1.15; margin:5mm 0 2mm; font-weight:800; letter-spacing:-.01em; }
+  .lead { font-size:12.8pt; line-height:1.45; color:var(--ink2); margin:0 0 5mm; }
+  .lead b { color:var(--ink); }
+  .kpis { display:grid; grid-template-columns: repeat(4,1fr); gap:3mm; margin-bottom:5mm; }
+  .kpis.k3 { grid-template-columns: repeat(3,1fr); }
+  .kpi { background:var(--az2); border-radius:3mm; padding:3.5mm 3.5mm 3mm; }
+  .kpi .v { font-size:20pt; font-weight:800; line-height:1.05; color:var(--ink); }
+  .kpi .v small { font-size:11pt; font-weight:700; }
+  .kpi .l { font-size:9pt; line-height:1.3; color:var(--ink2); margin-top:1.5mm; }
+  h2 { font-size:12pt; margin:5mm 0 2mm; font-weight:700; color:var(--ink); }
+  table { width:100%; border-collapse:collapse; font-size:9.4pt; line-height:1.34; }
+  th { text-align:left; font-weight:700; color:var(--ink2); border-bottom:1.5px solid var(--ink2); padding:1.6mm 2mm 1.6mm 0; vertical-align:bottom; }
+  td { border-bottom:1px solid var(--line); padding:1.7mm 2mm 1.7mm 0; vertical-align:top; }
+  td b { font-weight:700; }
+  ul { margin:0; padding-left:4.5mm; font-size:10.3pt; line-height:1.45; }
+  li { margin-bottom:1.3mm; }
+  .cols { display:grid; grid-template-columns:1fr 1fr; gap:6mm; }
+  .box { border:1.5px solid var(--az); border-radius:3mm; padding:3.5mm 4mm; margin-top:4mm; }
+  .box h3 { margin:0 0 1.5mm; font-size:10.5pt; color:var(--az); }
+  .box p { margin:0; font-size:10.2pt; line-height:1.45; }
+  .warnbox { border-color:var(--warn); }
+  .warnbox h3 { color:var(--warn); }
+  .spacer { flex:1; }
+  .foot { border-top:1px solid var(--line); padding-top:2mm; font-size:7.6pt; line-height:1.35; color:var(--mut); }
+  .tag { display:inline-block; font-size:7.5pt; font-weight:700; padding:.4mm 1.8mm; border-radius:2mm; background:#f1f1ee; color:var(--ink2); }
+  .tag.az { background:var(--az); color:#fff; }
+  .bars { margin:1mm 0 0; }
+  .bar { display:grid; grid-template-columns: 50mm 1fr 14mm; align-items:center; gap:2mm; font-size:9.6pt; margin:1.8mm 0; }
+  .bar .t { height:4.2mm; background:#eef0f2; border-radius:1mm; overflow:hidden; }
+  .bar .f { height:100%; background:var(--az); }
+  .bar .f.o { background:#eb6834; }
+  .bar .n { text-align:right; font-weight:700; }
+  .legend { font-size:8pt; color:var(--ink2); margin-top:1mm; }
+  .sw { display:inline-block; width:3mm; height:3mm; border-radius:.6mm; vertical-align:-.4mm; margin-right:1mm; }
+</style>
+</head>
+<body>
+
+<!-- 1. MERCATO -->
+<section class="page">
+  <div class="top"><span class="num">1 / 7 · MERCATO E CONCORRENZA</span><span class="proj">Versus Lux · sintesi ricerche · novembre 2026</span></div>
+  <h1>Le facciate dinamiche si comandano quasi tutte con il cavo</h1>
+  <p class="lead">Abbiamo analizzato produttori premium, italiani ed europei, cinesi e apparecchi da evento. <b>Nessuno offre un apparecchio da facciata con radio integrata in rete mesh, effetti sincronizzati e compatibilità DMX</b>: è lo spazio che occupa il progetto Versus Lux.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">0</div><div class="l">prodotti architetturali trovati con mesh radio integrata</div></div>
+    <div class="kpi"><div class="v">2</div><div class="l">premium con radio integrata (SGM P-6, Acclaim Dyna Drum): DMX wireless a stella</div></div>
+    <div class="kpi"><div class="v">0</div><div class="l">prodotti con 5 canali di comando indipendenti; lo standard è RGBW o RGBA</div></div>
+    <div class="kpi"><div class="v">31-64<small> lm/W</small></div><div class="l">efficienza tipica in modalità colore dei proiettori RGBW</div></div>
+  </div>
+  <h2>Le quattro fasce di concorrenti</h2>
+  <table>
+    <tr><th style="width:22%">Fascia</th><th style="width:30%">Marchi analizzati</th><th style="width:24%">Controllo</th><th>Wireless</th></tr>
+    <tr><td><b>Premium internazionali</b></td><td>Color Kinetics (Signify), Lumenpulse, Traxon, Martin Exterior, Anolis, SGM, Acclaim, GVA</td><td>DMX/RDM, Ethernet, cavo unico potenza + dati (Powercore, Lumentalk)</td><td>Ricevitori CRMX esterni; integrato solo SGM P-6 e Acclaim (stella, non mesh)</td></tr>
+    <tr><td><b>Italiani ed europei</b></td><td>iGuzzini, Griven, Simes, L&amp;L, Linea Light, Targetti, Lombardo, Prolights, Thorn, WE-EF, Schréder, Bega</td><td>DMX-RDM, DALI DT8</td><td>Solo come opzione: Casambi su richiesta (Targetti, L&amp;L), CRMX esterno (Prolights)</td></tr>
+    <tr><td><b>Cinesi e fascia economica</b></td><td>SANSI, Unilumin, LTECH, MiBoxer e fabbriche da marketplace</td><td>DMX a 3-4 canali, autoindirizzamento</td><td>Radio proprietarie a corto raggio (30 m), Tuya, ricevitori esterni</td></tr>
+    <tr><td><b>Evento e batteria</b></td><td>Astera, Chauvet, ADJ, Prolights Smart Bat, BeamZ</td><td>DMX, app</td><td>CRMX o W-DMX integrati; IP54-65, non per impianti permanenti</td></tr>
+  </table>
+  <div class="cols">
+    <div class="box"><h3>Cosa offrono i migliori</h3><p>IP66/67, IK08-IK10, protezione dalla corrosione C5-M, sovratensioni 10 kV, da -40 a +50 °C, 16 bit, garanzia 5 anni. Pochi dichiarano i lumen per canale o la frequenza PWM.</p></div>
+    <div class="box"><h3>Da sapere</h3><p>Lumenpulse Opticolor+ mescola più di 4 sorgenti nell'apparecchio (fino a rosso, verde, blu royal, arancio, giallo, bianco) ma con 4 canali di comando e bianco regolabile 2200-8000 K.</p></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="foot">Fonti: schede tecniche e siti ufficiali dei produttori, distributori e marketplace, consultati l'8 e 9/11/2026. Dettagli e link: reports/Analisi concorrenza illuminazione dinamica.md nel repository DinamicMesh_wireless. Alcuni marchi (es. Ledlightgroup, Cariboni) non hanno restituito schede RGB da esterno: non significa che non le producano.</div>
+</section>
+
+<!-- 2. PREZZI -->
+<section class="page">
+  <div class="top"><span class="num">2 / 7 · PREZZI</span><span class="proj">Versus Lux · sintesi ricerche · novembre 2026</span></div>
+  <h1>I prezzi pubblici esistono solo agli estremi del mercato</h1>
+  <p class="lead">La fascia economica e quella da evento pubblicano listini; <b>i marchi architetturali di progetto non pubblicano prezzi in euro</b> e vendono tramite agenti e distributori. Un ricevitore radio esterno costa da solo circa 590 €: la radio integrata è un vantaggio economico diretto.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">9-18<small> $</small></div><div class="l">wall washer RGBW DMX cinese, al pezzo (FOB, MOQ 1)</div></div>
+    <div class="kpi"><div class="v">180-230<small> €/m</small></div><div class="l">lineari RGBW IP65 da evento, netti</div></div>
+    <div class="kpi"><div class="v">~590<small> €</small></div><div class="l">ricevitore LumenRadio CRMX IP65, netto</div></div>
+    <div class="kpi"><div class="v">3.736<small> €</small></div><div class="l">Thorn Contrast Large RGBW 113 W, prezzo europeo più alto trovato</div></div>
+  </div>
+  <h2>Prezzi verificati</h2>
+  <table>
+    <tr><th style="width:44%">Prodotto</th><th style="width:20%">Prezzo</th><th style="width:16%">IVA</th><th>Fonte</th></tr>
+    <tr><td>Wall washer RGBW DMX 1 m (Sun Origin)</td><td>9-18 $/pz</td><td>FOB</td><td>Alibaba</td></tr>
+    <tr><td>Tronix wall washer 1 m, 48 W RGBW, IP65/66</td><td>181,45 €</td><td>esclusa</td><td>masterlight.ee</td></tr>
+    <tr><td>Eurolite LED IP T-Bar 16 QCL, 1 m</td><td>~227 €</td><td>esclusa</td><td>Thomann</td></tr>
+    <tr><td>Meyer Monospot S4 RGBW 48 W</td><td>1.290 CHF</td><td>n.d.</td><td>Digitec</td></tr>
+    <tr><td>Martin Exterior Wash 100</td><td>1.678 $</td><td>MSRP USA</td><td>Almo</td></tr>
+    <tr><td>Color Kinetics ColorGraze MX4 RGBW 1,2 m</td><td>2.154,52 $</td><td>USA</td><td>Plum Lighting</td></tr>
+    <tr><td>Thorn Contrast Medium / Large RGBW</td><td>2.989 / 3.736 €</td><td>n.d.</td><td>Bank of Lamps</td></tr>
+    <tr><td>Color Kinetics Data Enabler Pro (dati su cavo di potenza)</td><td>1.181,03 $</td><td>USA</td><td>Plum Lighting</td></tr>
+    <tr><td>LumenRadio CRMX Slim RX IP65</td><td>~587 €</td><td>esclusa</td><td>rivenditore UE</td></tr>
+    <tr><td>Casambi CBU-PWM4</td><td>~128,5 €</td><td>esclusa</td><td>rivenditore UE</td></tr>
+  </table>
+  <div class="cols">
+    <div class="box"><h3>Appalti pubblici</h3><p>Nei prezzari regionali (es. FVG 2025) ci sono solo proiettori LED bianchi, da 267 a 472 € posati. Nessuna voce RGB o DMX: nei capitolati serve un "nuovo prezzo". Opportunità: offrire ai progettisti voci di capitolato pronte.</p></div>
+    <div class="box"><h3>Da chiedere con preventivo</h3><p>iGuzzini, Griven, Simes, L&amp;L, Linea Light, Targetti, WE-EF, Lumenpulse (sede a Calenzano, FI), SGM nuovo. Fascia indicativa per i lineari Versus Lux: 250-400 €/m netti verso il canale (nostra valutazione).</p></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="foot">Prezzi letti l'8/11/2026 con valuta e stato IVA indicati; "~" = netto calcolato scorporando l'IVA del paese del negozio. Dettagli: reports/Analisi concorrenza illuminazione dinamica.md e research_notes/ nel repository DinamicMesh_wireless.</div>
+</section>
+
+<!-- 3. PROGETTI -->
+<section class="page">
+  <div class="top"><span class="num">3 / 7 · PROGETTI REALIZZATI</span><span class="proj">Versus Lux · sintesi ricerche · novembre 2026</span></div>
+  <h1>Le opere simbolo sono cablate; la radio si sceglie quando il cavo non si può posare</h1>
+  <p class="lead">Su 29 progetti analizzati, <b>i grandi impianti iconici usano DMX, fibra o Ethernet</b>, venduti come sistema completo con contratti di servizio. La radio compare su beni tutelati, ponti senza canalizzazioni e strutture dove non si può forare.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">29</div><div class="l">progetti documentati con tecnologie e componenti</div></div>
+    <div class="kpi"><div class="v">7</div><div class="l">progetti italiani, quasi tutti promossi da multiutility</div></div>
+    <div class="kpi"><div class="v">0<small> m</small></div><div class="l">di cavo di controllo ad Akershus: 236 apparecchi, 66 nodi radio</div></div>
+    <div class="kpi"><div class="v">40-80<small>%</small></div><div class="l">risparmio energetico dichiarato rispetto agli impianti precedenti</div></div>
+  </div>
+  <h2>Casi più utili per Versus Lux</h2>
+  <table>
+    <tr><th style="width:24%">Progetto</th><th style="width:30%">Soluzione</th><th>Perché conta</th></tr>
+    <tr><td><b>Tyne Bridge</b> (UK)</td><td>Modulo CRMX integrato nell'alimentatore Philips</td><td>Il caso più vicino al vostro concetto: radio dentro l'apparecchio, solo cavo di potenza</td></tr>
+    <tr><td><b>Akershus</b> (Oslo)</td><td>LumenRadio W-DALI, 236 apparecchi, controllo Pharos</td><td>Salto massimo tra nodi circa 100 m; scelto per non toccare la fortezza</td></tr>
+    <tr><td><b>Pont du Gard</b> (Francia)</td><td>LumenRadio: 2 trasmettitori, 2 ripetitori, 23 ricevitori</td><td>Monumento tutelato, nessun cavo posabile</td></tr>
+    <tr><td><b>Blatnik Bridge</b> (USA)</td><td>Lumentalk: 90 apparecchi, 1 Lumenlink, 1 Lumentranslator</td><td>Dati sul cavo di potenza; energia -60%</td></tr>
+    <tr><td><b>Illuminated River</b> (Londra)</td><td>Cablato, Signify Interact Landmark, monitoraggio 10 anni</td><td>45 M£: il modello "sistema + servizio" dei grandi</td></tr>
+    <tr><td><b>Bay Lights</b> (San Francisco)</td><td>Pixel LED cablati</td><td>Spento nel 2023 per nebbia, vento e salsedine: la tenuta conta più dell'elettronica</td></tr>
+    <tr><td><b>Mole Antonelliana</b> (Torino)</td><td>43 Claypaky ODEON RGBW, fibra ottica, Iren</td><td>Tipico italiano: pochi proiettori potenti, multiutility</td></tr>
+    <tr><td><b>Palazzo Lombardia</b> (Milano)</td><td>143 LED RGB in DMX, A2A con Signify</td><td>Scene e colori per ricorrenze</td></tr>
+  </table>
+  <div class="box"><h3>Il progetto tipico in Italia</h3><p>Decine o centinaia di proiettori RGBW su monumenti, ponti e sedi istituzionali, promossi da multiutility (Iren, A2A, Acea), con scene, calendari e colori per ricorrenze e vincoli della Soprintendenza sui bianchi. Per questo uso una rete mesh a bassa banda basta.</p></div>
+  <div class="spacer"></div>
+  <div class="foot">Fonti: case study dei produttori, stampa di settore, comunicati di enti e multiutility. Le fonti sui casi wireless sono quasi tutte dei produttori. Dettagli: research_notes/Analisi concorrenza illuminazione dinamica/progetti_realizzati.md.</div>
+</section>
+
+<!-- 4. TECNOLOGIE SENZA CAVO DATI -->
+<section class="page">
+  <div class="top"><span class="num">4 / 7 · COMANDO SENZA CAVO DATI</span><span class="proj">Versus Lux · sintesi ricerche · novembre 2026</span></div>
+  <h1>Tre famiglie di tecnologie, nessuna fa tutto</h1>
+  <p class="lead">Il DMX wireless è veloce ma a stella e con pochi canali; le mesh esistenti eseguono solo scene memorizzate; i dati sul cavo di potenza sono lenti. <b>La combinazione mesh + effetti sincronizzati + compatibilità DMX non esiste come prodotto commerciale.</b></p>
+  <table>
+    <tr><th style="width:20%">Famiglia</th><th style="width:22%">Esempi</th><th style="width:30%">Prestazioni dichiarate</th><th>Limite principale</th></tr>
+    <tr><td><b>DMX wireless a stella</b></td><td>LumenRadio CRMX, W-DMX, Astera</td><td>Latenza fissa 5 ms, DMX dal vivo</td><td>1-2 universi per trasmettitore, nessuna mesh, modulo a pagamento</td></tr>
+    <tr><td><b>Mesh a scene</b></td><td>Casambi, LumenRadio AirGlow, Zigbee (Interact Pro), DALI+ su Thread</td><td>Casambi 250 nodi e 255 scene; AirGlow 8 salti, 1.500 m in vista</td><td>Animazioni corte (Casambi 80 passi), niente DMX dal vivo; Casambi sconsiglia i corpi metallici</td></tr>
+    <tr><td><b>Dati sul cavo di potenza</b></td><td>Lumenpulse Lumentalk, Color Kinetics IntelliPower</td><td>Lumentalk: oltre 400 progetti; CK: 63 ricevitori per ramo, 150 m</td><td>Lumentalk: 48 canali DMX per rete, passi da 1 s, dissolvenze da almeno 1 min</td></tr>
+  </table>
+  <h2>Lumentalk in breve (concorrente concettuale più vicino)</h2>
+  <div class="cols">
+    <ul>
+      <li>Onde convogliate sovrapposte alla rete 100-277 V, modulazione FSK, dal 2012.</li>
+      <li>Componenti: Lumentranslator 2, Lumenlink Pro (fino a 6 circuiti, 3G per ponti), scheda Lumenear nell'apparecchio.</li>
+      <li>La brochure stessa consiglia il DMX cablato "per gli spettacoli di colore veloci".</li>
+    </ul>
+    <ul>
+      <li>Argomento di vendita contro la radio: <i>"non si può violare da remoto"</i>. Risposta: cifratura, chiavi per impianto, firmware firmato, EN 18031.</li>
+      <li>Prezzi non pubblicati; licenza disponibile ad altri produttori.</li>
+      <li>Nessuna norma EN 50065 citata nella dichiarazione CE letta.</li>
+    </ul>
+  </div>
+  <h2>Licenze e costi fissi</h2>
+  <table>
+    <tr><th style="width:34%">Tecnologia</th><th>Costo per chi la integra</th></tr>
+    <tr><td>Bluetooth (anche solo per l'app)</td><td>Qualifica Bluetooth SIG: 12.000 $ (6.000 $ per i membri Associate) dal 1° marzo 2026</td></tr>
+    <tr><td>CRMX</td><td>Modulo TimoTwo per apparecchio; prezzo e condizioni non pubblicati</td></tr>
+    <tr><td>Casambi</td><td>Modulo per apparecchio (es. CBU-PWM4 ~128,5 € al dettaglio)</td></tr>
+    <tr><td><b>ESP-NOW (scelta Versus Lux)</b></td><td><b>Nessuna licenza; modulo ESP32-C5 certificato da circa 4,3 $</b></td></tr>
+  </table>
+  <div class="spacer"></div>
+  <div class="foot">Fonti: siti e schede LumenRadio, Casambi, Signify, Lumenpulse (whitepaper, brochure EMEA 2019, manuale LumentalkID, scheda Lumenbeam EU), Bluetooth SIG, LCSC. Dettagli: reports/Lumentalk dati su linea elettrica.md e research_notes/ nel repository DinamicMesh_wireless.</div>
+</section>
+
+<!-- 5. COSTRUZIONE -->
+<section class="page">
+  <div class="top"><span class="num">5 / 7 · TECNICHE COSTRUTTIVE</span><span class="proj">Versus Lux · sintesi ricerche · novembre 2026</span></div>
+  <h1>La soglia da raggiungere per stare tra i migliori</h1>
+  <p class="lead">I concorrenti premium convergono su poche scelte costruttive. <b>La tenuta all'acqua e alla salsedine pesa più dell'elettronica</b> nei guasti documentati; per la radio, il corpo metallico è il primo nemico.</p>
+  <table>
+    <tr><th style="width:26%">Tema</th><th style="width:38%">Riferimento dei migliori</th><th>Esempi e note</th></tr>
+    <tr><td><b>Grado di protezione</b></td><td>IP66/67 (fino a IP69), IK08-IK10</td><td>Color Kinetics MX4 e Acclaim IK10; Lumenpulse IK09-IK10</td></tr>
+    <tr><td><b>Corrosione</b></td><td>Classe C5-M, finiture marine, viteria inox</td><td>Martin, SGM, Simes C5; L&amp;L oltre 1.000 h di nebbia salina</td></tr>
+    <tr><td><b>Tenuta</b></td><td>Guarnizione in silicone + valvola di equalizzazione</td><td>EPDM e neoprene non reggono IP66 a lungo; in un temporale l'interno passa da +65 a +15 °C in 10 minuti e va in depressione</td></tr>
+    <tr><td><b>Vetro</b></td><td>Temperato 4-8 mm, incollato con silicone</td><td>Thorn 5 mm</td></tr>
+    <tr><td><b>Sovratensioni</b></td><td>10 kV integrati, oppure protezione esterna 10 kA</td><td>Thorn, Acclaim, Schréder 10 kV; GVA 6 kV di serie, 20 kV opzione</td></tr>
+    <tr><td><b>Temperatura</b></td><td>da -40 a +50 °C</td><td>Il modulo ESP32-C5-WROOM-1U arriva a -40/+85 °C</td></tr>
+    <tr><td><b>Vibrazioni (ponti)</b></td><td>3 G secondo ANSI C136.31</td><td>Lumenpulse, Lumenlink Pro, SGM</td></tr>
+    <tr><td><b>Comando della luce</b></td><td>16 bit, PWM dichiarata, flicker basso</td><td>Prolights PWM 600-25.000 Hz; GVA fino a 40 kHz</td></tr>
+    <tr><td><b>Durata e garanzia</b></td><td>L70 50.000-150.000 h, garanzia 5 anni</td><td>Lumenpulse L70 oltre 90.000 h</td></tr>
+    <tr><td><b>Efficienza in colore</b></td><td>31-64 lm/W</td><td>Solo SGM, L&amp;L e Linea Light dichiarano i lumen per canale</td></tr>
+  </table>
+  <div class="cols">
+    <div class="box"><h3>Antenna nei corpi metallici</h3><p>Il metallo fa da gabbia. Soluzioni: antenna nel tappo plastico (barre lineari), antenna passante IP67, nodo esterno resinato (PB-1561), antenna a fessura (seconda generazione). Almeno 15 mm liberi attorno all'antenna (Espressif).</p></div>
+    <div class="box"><h3>Scelte per Versus Lux</h3><p>Silicone + valvola, resina poliuretanica o siliconica (non epossidica), C5-M, 10 kV, calibrazione del colore a fine linea, lumen per canale e PWM dichiarati in scheda.</p></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="foot">Fonti: schede tecniche dei produttori, whitepaper Gore e Stockwell, datasheet Osram, Luminus ed Espressif, norme ANSI C136.31 e Regolamento UE 2019/2020. Dettagli: research_notes/Analisi concorrenza illuminazione dinamica/tecniche_costruttive.md.</div>
+</section>
+
+<!-- 6. RETE E INTERFERENZE -->
+<section class="page">
+  <div class="top"><span class="num">6 / 7 · RETE E INTERFERENZE A 2,4 GHz</span><span class="proj">Versus Lux · sintesi ricerche · novembre 2026</span></div>
+  <h1>Il Wi-Fi che si sente non è un problema; quello nascosto sì</h1>
+  <p class="lead">Calcoli e simulazioni Monte Carlo (1.000 prove per caso, facciata 10×10 m e ponte 300 m). <b>L'inoltro mesh tra apparecchi è la difesa principale</b>, il rinfresco dello stato fissa il ritardo massimo, il cambio di canale risolve i casi peggiori.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="v">&lt;1<small> ms</small></div><div class="l">per salto, comando di scena su facciata pulita</div></div>
+    <div class="kpi"><div class="v">100<small>%</small></div><div class="l">comandi in tempo con Wi-Fi udibile al 60% del canale</div></div>
+    <div class="kpi"><div class="v">80<small>%</small></div><div class="l">comandi a tutti in tempo con telecamera nascosta; gli altri si riallineano</div></div>
+    <div class="kpi"><div class="v">1,6<small> s</small></div><div class="l">riallineamento di tutti (99%) con rinfresco ogni 0,5 s</div></div>
+  </div>
+  <h2>Comandi arrivati a tutti entro 50 ms, telecamera Wi-Fi nascosta (facciata, 100 apparecchi)</h2>
+  <div class="bars">
+    <div class="bar"><span>senza mesh, 1 copia</span><div class="t"><div class="f" style="width:30%"></div></div><span class="n">30%</span></div>
+    <div class="bar"><span>senza mesh, 3 copie</span><div class="t"><div class="f" style="width:45%"></div></div><span class="n">45%</span></div>
+    <div class="bar"><span>senza mesh, 5 copie</span><div class="t"><div class="f" style="width:52%"></div></div><span class="n">52%</span></div>
+    <div class="bar"><span><b>con mesh, 3 copie</b></span><div class="t"><div class="f o" style="width:80%"></div></div><span class="n">80%</span></div>
+  </div>
+  <h2>Controllo dal vivo a 30 aggiornamenti al secondo (16 bit, senza ripetizioni)</h2>
+  <table>
+    <tr><th style="width:36%">Scenario</th><th style="width:20%">100 apparecchi</th><th style="width:20%">400 apparecchi</th><th>Blocco più lungo</th></tr>
+    <tr><td>Pulito / Wi-Fi udibile 30%</td><td>0-0,1% persi</td><td>0-0,2% persi</td><td>67 ms</td></tr>
+    <tr><td>Wi-Fi udibile 60%</td><td>0,4%</td><td>2,4%</td><td>100 ms</td></tr>
+    <tr><td>Wi-Fi nascosto 40%</td><td>15%</td><td>17%</td><td>0,47 s</td></tr>
+    <tr><td>Telecamera nascosta 85%</td><td>35%</td><td>38%</td><td>2 s</td></tr>
+  </table>
+  <div class="cols">
+    <div class="box"><h3>Valori iniziali per il firmware</h3><p>Mesh sempre attiva, 3 copie del coordinatore, 6 Mbps (meglio di 1 Mbps sotto interferenza a raffiche), rinfresco dello stato ogni 0,5-1 s, cambio di canale automatico, canali 12-13 spesso liberi in Europa.</p></div>
+    <div class="box warnbox"><h3>Da risolvere</h3><p>Il controllo dal vivo va protetto (inoltro o copia locale) o abilitato solo su canale verificato. Sul ponte una telecamera a metà spezza la catena (75% in tempo): valutare due coordinatori. Confermare con il laboratorio la conformità EN 300 328.</p></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="foot">Numeri comparativi, non assoluti: parametri radio tipici, posizioni degli interferenti costruite per il caso peggiore. Da tarare con lo strumento di test (repository DinamicMesh_tester). Dettagli: docs/simulazioni-coesistenza.md e simulazioni/ nel repository DinamicMesh_wireless.</div>
+</section>
+
+<!-- 7. OPPORTUNITA -->
+<section class="page">
+  <div class="top"><span class="num">7 / 7 · OPPORTUNITÀ PER VERSUS LUX</span><span class="proj">Versus Lux · sintesi ricerche · novembre 2026</span></div>
+  <h1>Uno spazio libero, che va conquistato con prove documentate</h1>
+  <p class="lead">Il prodotto risponde a un bisogno reale (eliminare il cavo dati) con una combinazione che oggi non esiste. <b>L'ostacolo non è tecnico ma di fiducia</b>: chi specifica una facciata per 20 anni sceglie ciò che è già provato. <span class="tag">valutazioni, non fatti citati</span></p>
+  <div class="cols">
+    <div>
+      <h2>Perché nessuno l'ha ancora fatto</h2>
+      <ul>
+        <li><b>Clienti prudenti:</b> opere che durano 15-20 anni, gare pubbliche, nessuno vuole essere il primo.</li>
+        <li><b>Ai grandi il cavo conviene:</b> vendono controller, scatole e contratti di servizio.</li>
+        <li><b>Software difficile:</b> chi fa ottica e meccanica non fa reti radio; chi fa reti radio punta agli edifici.</li>
+        <li><b>Hardware recente:</b> ESP32-C5 in produzione solo da aprile 2025.</li>
+        <li><b>Regole più severe:</b> cybersicurezza RED e Cyber Resilience Act.</li>
+        <li><b>Cultura del DMX dal vivo</b> e paura della banda affollata.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Dove giocare</h2>
+      <ul>
+        <li><b>Progetti medi italiani:</b> facciate di multiutility, beni tutelati, ristrutturazioni dove il cavo costa o non si può posare.</li>
+        <li><b>Argomento di vendita:</b> costo di sistema, non del singolo apparecchio (niente ricevitori da ~590 €, niente cavi e quadri dati).</li>
+        <li><b>5 canali</b> venduti come qualità del bianco e del colore.</li>
+        <li><b>Rilievo radio</b> allegato all'offerta, fatto con lo strumento di test.</li>
+        <li><b>Voci di capitolato pronte</b> per i progettisti.</li>
+      </ul>
+    </div>
+  </div>
+  <h2>Cosa serve per essere credibili</h2>
+  <table>
+    <tr><th style="width:32%">Azione</th><th>Risultato atteso</th></tr>
+    <tr><td><b>Strumento di test (6 esemplari)</b></td><td>Misure reali di sincronia, perdite e interferenze; simulatore tarato</td></tr>
+    <tr><td><b>Banco e prove sul campo</b></td><td>Catena lunga, portata su struttura metallica, interferenze, robustezza</td></tr>
+    <tr><td><b>Impianto pilota monitorato</b></td><td>Referenza documentata con dati di funzionamento</td></tr>
+    <tr><td><b>Sicurezza dichiarata</b></td><td>Cifratura, chiavi per impianto, firmware firmato, EN 18031: risposta all'obiezione "la radio si può violare"</td></tr>
+    <tr><td><b>Costruzione al livello premium</b></td><td>IP66/67, C5-M, 10 kV, -40 °C, 3 G per i ponti, garanzia 5 anni</td></tr>
+  </table>
+  <div class="box warnbox"><h3>Rischi da tenere sotto controllo</h3><p>Sorgenti nascoste continue (telecamere Wi-Fi), controllo dal vivo da proteggere, antenna nei corpi metallici, conformità radio e cybersicurezza da confermare con il laboratorio, prezzi dei concorrenti di progetto ancora da raccogliere con preventivi.</p></div>
+  <div class="spacer"></div>
+  <div class="foot">Sintesi delle ricerche dell'8-9/11/2026. Fonte unica e aggiornata: repository GitHub lucaversus/DinamicMesh_wireless (specifica, report, note, simulazioni, registro delle decisioni) e lucaversus/DinamicMesh_tester.</div>
+</section>
+
+</body>
+</html>
