@@ -36,6 +36,8 @@ Progetto Versus Lux di una nuova linea di apparecchi RGB per facciate, ponti e g
 | [`research_notes/Analisi concorrenza illuminazione dinamica/`](<research_notes/Analisi concorrenza illuminazione dinamica/>) | Note di ricerca dettagliate con tutte le fonti, per filone |
 | [`reports/Lumentalk dati su linea elettrica.md`](<reports/Lumentalk dati su linea elettrica.md>) | Approfondimento su Lumentalk (Lumenpulse) e sulle altre tecnologie dati su cavo di alimentazione, confronto con la mesh |
 | [`research_notes/Lumentalk dati su linea elettrica/`](<research_notes/Lumentalk dati su linea elettrica/>) | Note e fonti primarie dell'approfondimento Lumentalk |
+| [`reports/COB LED multicolore e lenti.md`](<reports/COB LED multicolore e lenti.md>) | Sorgenti LED multicolore (COB e multi-chip) e ottiche per proiettori e lineari: architetture a 5 canali, ambra, tenuta all'esterno, calibrazione, prezzi, proposta e campioni da chiedere |
+| [`research_notes/COB LED multicolore e lenti/`](<research_notes/COB LED multicolore e lenti/>) | Note di ricerca e fonti su COB, emettitori, ottiche e affidabilità |
 
 Per rifare i calcoli con ipotesi diverse, modifica le costanti in testa allo script ed eseguilo:
 

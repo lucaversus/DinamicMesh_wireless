@@ -45,6 +45,13 @@ Aggiornato al 9 novembre 2026. Raccoglie in un posto solo le decisioni prese, il
 - L'inoltro mesh conta più delle ripetizioni del coordinatore. 6 Mbps rende meglio di 1 Mbps sotto interferenza a raffiche.
 - Il controllo dal vivo senza ripetizioni perde fino al 38% degli aggiornamenti con sorgenti nascoste: va protetto a parte.
 
+**Sorgenti LED e ottiche** ([report](../reports/COB%20LED%20multicolore%20e%20lenti.md)):
+- Nessun COB a 5 canali di qualità sul mercato: i produttori di riferimento si fermano a RGBW. L'unico RGBWA è cinese (Guangmai 40 W), economico ma con bianco freddo Ra 70 e Rth alta.
+- Fasci da 4 a 10° solo con sorgenti compatte e una lente per sorgente: il proiettore diventa una matrice di celle. Un COB grande con riflettore non scende sotto circa 17-20°.
+- Ambra: il PC-amber tiene l'87% della luce a 85 °C contro il 36% dell'ambra diretto, ma invecchia peggio.
+- In un corpo sigillato: vetro frontale davanti alle lenti plastiche, materiali a basso rilascio di vapori, LED con prova allo zolfo, niente resina sui LED.
+- Calibrazione per apparecchio e compensazione della temperatura nel firmware della scheda nodo.
+
 ## Punti aperti
 
 Elenco completo nella sezione "Scelte aperte" della specifica. I più importanti:
@@ -55,6 +62,7 @@ Elenco completo nella sezione "Scelte aperte" della specifica. I più importanti
 5. ~~Temperatura minima del modulo ESP32-C5~~: chiuso il 9/11/2026, il modulo ESP32-C5-WROOM-1U funziona da -40 a +85 °C (datasheet Espressif). Restano da verificare gli altri componenti della scheda.
 6. Prezzi di progetto dei concorrenti italiani ed europei e di Lumenpulse (sede a Calenzano): richiedere preventivi.
 7. Frequenza PWM e risoluzione di dimming; protezione dalle sovratensioni (riferimento dei migliori: 10 kV).
+8. Sorgente e ottica: scegliere tra cella con emettitore RGBW + quinto LED e cluster di LED a colore singolo per i proiettori; qualificare il COB Guangmai RGBWA come variante economica; scegliere tra ambra diretto e PC-amber. Campioni e preventivi da chiedere elencati nel [report](../reports/COB%20LED%20multicolore%20e%20lenti.md).
 
 ## Prossimi passi proposti
 
