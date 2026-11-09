@@ -25,6 +25,10 @@ Aggiornato al 9 novembre 2026. Raccoglie in un posto solo le decisioni prese, il
 | 17 | 08/11/2026 | Gli spot motorizzati per interni (pan 360°, tilt 180°, fermo meccanico, nessuno slip ring) sono nodi della stessa rete | Stesso firmware, stessa app, stessa certificazione radio | Repository [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion) |
 | 18 | 09/11/2026 | Strumento di test della rete: un unico apparecchio a batteria in 6 esemplari identici, con schermo touch da 5", ESP32-S3 per interfaccia e due ESP32-C5 (nodo e monitor), scanner di spettro CC2500, GPS con PPS | Provare il firmware al banco, tarare il simulatore, fare il rilievo radio prima della vendita | Repository [DinamicMesh_tester](https://github.com/lucaversus/DinamicMesh_tester) |
 | 19 | 09/11/2026 | I proiettori partono dalla sorgente Bridgelux Vesta RGBW D10/D13 (array con area luminosa unica da 10 o 13 mm, bianco CRI 95 regolabile 1800-10.000 K, lenti Moony 15-50°, anodo comune, NTC a bordo) | Scelta di Luca; è la migliore sorgente RGBW trovata, con supporto e ottiche già pronti | [Analisi Vesta](sorgente-bridgelux-vesta.md) |
+| 20 | 09/11/2026 | Al massimo 5 canali con sorgenti Bridgelux e 30 W per apparecchio, in tutte le tipologie; per potenze maggiori si affiancano più apparecchi | Una sola elettronica e un solo progetto termico | Specifica, Requisiti |
+| 21 | 09/11/2026 | Scheda luce a 5 canali, condivisa con gli spot motorizzati: nel corpo, con microcontrollore che genera il PWM a 16 bit, collegata alla scheda nodo via RS-485 | Un solo progetto per proiettori fissi e motorizzati; risolve il PWM a 16 bit | Specifica, Scheda luce condivisa; [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion) |
+| 22 | 09/11/2026 | I prodotti da esterni non si accendono mai di giorno; protezione termica su tre livelli (firmware, termostato hardware, blocco diurno) | Un'accensione sotto il sole surriscalderebbe la scheda | Specifica, Protezione termica e blocco diurno |
+| 23 | 09/11/2026 | Blocco diurno sbloccabile solo dall'installatore, per 10 minuti | Prove e manutenzione senza rischi | Specifica, Protezione termica e blocco diurno |
 
 ## Cosa hanno detto le analisi
 
@@ -64,6 +68,8 @@ Elenco completo nella sezione "Scelte aperte" della specifica. I più importanti
 6. Prezzi di progetto dei concorrenti italiani ed europei e di Lumenpulse (sede a Calenzano): richiedere preventivi.
 7. Frequenza PWM e risoluzione di dimming; protezione dalle sovratensioni (riferimento dei migliori: 10 kV).
 8. Sorgente e ottica: scegliere tra cella con emettitore RGBW + quinto LED e cluster di LED a colore singolo per i proiettori; qualificare il COB Guangmai RGBWA come variante economica; scegliere tra ambra diretto e PC-amber. Campioni e preventivi da chiedere elencati nel [report](../reports/COB%20LED%20multicolore%20e%20lenti.md).
+9. Ruoli nell'app (installatore e cliente) e credenziali dell'installatore: servono per il blocco diurno.
+10. Prove termiche della scheda luce: corpo IP66 al sole simulato a LED spento, accensione in quelle condizioni, avvio a -40 °C; da qui le soglie di protezione.
 
 ## Prossimi passi proposti
 
