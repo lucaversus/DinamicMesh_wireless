@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 560" font-family="Arial, Helvetica, sans-serif" font-size="14">
+  <rect width="1100" height="560" fill="#ffffff"/>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#555"/>
+    </marker>
+  </defs>
+  <text x="30" y="36" font-size="18" font-weight="bold" fill="#222">Strumento di test della rete mesh – schema a blocchi (v0.1)</text>
+
+  <!-- scheda display -->
+  <rect x="30" y="70" width="330" height="200" rx="10" fill="#e6f5fc" stroke="#22A8DD" stroke-width="2.5"/>
+  <text x="195" y="98" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">Scheda Waveshare ESP32-S3-Touch-LCD-5</text>
+  <text x="195" y="126" text-anchor="middle" fill="#333">ESP32-S3 (16 MB flash, 8 MB PSRAM)</text>
+  <text x="195" y="148" text-anchor="middle" fill="#333">schermo 5" 800×480, touch capacitivo</text>
+  <text x="195" y="170" text-anchor="middle" fill="#333">grafici, mappe, scelta del ruolo</text>
+  <text x="195" y="192" text-anchor="middle" fill="#333">microSD, USB-C, caricatore 1 cella</text>
+  <text x="195" y="214" text-anchor="middle" fill="#333">radio S3 libera (scarico dati)</text>
+
+  <!-- PC -->
+  <rect x="30" y="330" width="165" height="76" rx="8" fill="#fff" stroke="#888" stroke-dasharray="6 4"/>
+  <text x="110" y="354" text-anchor="middle" font-weight="bold" fill="#222">PC (Python)</text>
+  <text x="112" y="373" text-anchor="middle" font-size="12" fill="#555">scenari di prova,</text>
+  <text x="112" y="391" text-anchor="middle" font-size="12" fill="#555">confronto simulazioni</text>
+  <path d="M110 270V328" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="6 4" marker-start="url(#a)" marker-end="url(#a)"/>
+  <text x="118" y="304" font-size="12" fill="#555">USB-C</text>
+
+  <!-- alimentazione -->
+  <rect x="210" y="330" width="150" height="76" rx="8" fill="#fff" stroke="#555"/>
+  <text x="285" y="354" text-anchor="middle" font-weight="bold" fill="#222">Batteria</text>
+  <text x="285" y="373" text-anchor="middle" font-size="12" fill="#555">4 × 18650 in parallelo</text>
+  <text x="285" y="391" text-anchor="middle" font-size="12" fill="#555">circa 50 Wh, misura carica</text>
+
+  <!-- scheda espansione -->
+  <rect x="420" y="60" width="650" height="470" rx="12" fill="none" stroke="#555" stroke-width="1.5" stroke-dasharray="8 5"/>
+  <text x="745" y="84" text-anchor="middle" font-weight="bold" fill="#555">Scheda di espansione (da progettare)</text>
+
+  <rect x="450" y="100" width="260" height="84" rx="8" fill="#fff" stroke="#555"/>
+  <text x="580" y="126" text-anchor="middle" font-weight="bold" fill="#222">ESP32-C5 n. 1 – nodo</text>
+  <text x="580" y="146" text-anchor="middle" font-size="12" fill="#555">firmware della rete del prodotto</text>
+  <text x="580" y="164" text-anchor="middle" font-size="12" fill="#555">registro eventi PPS · antenna SMA</text>
+
+  <rect x="450" y="214" width="260" height="84" rx="8" fill="#fff" stroke="#555"/>
+  <text x="580" y="240" text-anchor="middle" font-weight="bold" fill="#222">ESP32-C5 n. 2 – monitor</text>
+  <text x="580" y="260" text-anchor="middle" font-size="12" fill="#555">cattura pacchetti, occupazione canali</text>
+  <text x="580" y="278" text-anchor="middle" font-size="12" fill="#555">generatore traffico · antenna SMA</text>
+
+  <rect x="450" y="328" width="260" height="66" rx="8" fill="#fff" stroke="#555"/>
+  <text x="580" y="354" text-anchor="middle" font-weight="bold" fill="#222">CC2500 – scanner di spettro</text>
+  <text x="580" y="374" text-anchor="middle" font-size="12" fill="#555">energia su 2,400-2,4835 GHz</text>
+
+  <rect x="450" y="424" width="260" height="76" rx="8" fill="#fff" stroke="#555"/>
+  <text x="580" y="450" text-anchor="middle" font-weight="bold" fill="#222">Alimentazione</text>
+  <text x="580" y="470" text-anchor="middle" font-size="12" fill="#555">caricatore USB-C, convertitore 3,3 V</text>
+  <text x="580" y="488" text-anchor="middle" font-size="12" fill="#555">(almeno 0,6 A per ogni C5)</text>
+
+  <rect x="790" y="100" width="250" height="66" rx="8" fill="#fff" stroke="#555"/>
+  <text x="915" y="126" text-anchor="middle" font-weight="bold" fill="#222">LED RGBWA + 5 MOSFET</text>
+  <text x="915" y="146" text-anchor="middle" font-size="12" fill="#555">apparecchio in miniatura (PWM)</text>
+
+  <rect x="790" y="196" width="250" height="66" rx="8" fill="#fff" stroke="#555"/>
+  <text x="915" y="222" text-anchor="middle" font-weight="bold" fill="#222">GPS u-blox MAX-M10S</text>
+  <text x="915" y="242" text-anchor="middle" font-size="12" fill="#555">impulso al secondo (PPS)</text>
+
+  <rect x="790" y="292" width="250" height="66" rx="8" fill="#fff" stroke="#555"/>
+  <text x="915" y="318" text-anchor="middle" font-weight="bold" fill="#222">Presa sincronismo PPS</text>
+  <text x="915" y="338" text-anchor="middle" font-size="12" fill="#555">riferimento via cavo al chiuso</text>
+
+  <rect x="790" y="388" width="250" height="66" rx="8" fill="#fff" stroke="#555"/>
+  <text x="915" y="414" text-anchor="middle" font-weight="bold" fill="#222">Fotodiodo + amplificatore</text>
+  <text x="915" y="434" text-anchor="middle" font-size="12" fill="#555">cambio reale della luce</text>
+
+  <!-- antenne -->
+
+  <!-- collegamenti -->
+  <g fill="none" stroke="#555" stroke-width="1.5">
+    <path d="M362 142H448" marker-start="url(#a)" marker-end="url(#a)"/>
+    <path d="M362 230H405V256H448" marker-start="url(#a)" marker-end="url(#a)"/>
+    <path d="M788 133H712" marker-end="url(#a)"/>
+    <path d="M788 229H750V160H712" marker-end="url(#a)"/>
+    <path d="M750 229V270H712" marker-end="url(#a)"/>
+    <path d="M788 325H760V229" />
+    <path d="M788 421H730V290H712" marker-end="url(#a)"/>
+    <path d="M580 326V300" marker-end="url(#a)"/>
+    <path d="M362 368H400V462H448" marker-start="url(#a)" marker-end="url(#a)"/>
+  </g>
+  <text x="370" y="134" font-size="12" fill="#555">dati</text>
+  <text x="370" y="222" font-size="12" fill="#555">dati</text>
+  <text x="370" y="360" font-size="12" fill="#555">energia</text>
+  <text x="766" y="190" font-size="11" fill="#555">PPS</text>
+
+  <text x="30" y="545" font-size="13" fill="#555">6 esemplari identici · contenitore plastico IP65 · collegamenti tra S3 e C5 da definire nel passo 2 (pin liberi della scheda Waveshare)</text>
+</svg>

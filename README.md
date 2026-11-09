@@ -30,6 +30,7 @@ Progetto Versus Lux di una nuova linea di apparecchi RGB per facciate, ponti e g
 | [`calcoli/dimensionamento_rete.py`](calcoli/dimensionamento_rete.py) | Script di calcolo di latenza e occupazione del canale (facciata 10×10 m) |
 | [`docs/simulazioni-coesistenza.md`](docs/simulazioni-coesistenza.md) | Risultati delle simulazioni di coesistenza a 2,4 GHz (facciata e ponte) |
 | [`simulazioni/`](simulazioni/) | Simulatore Monte Carlo di interferenze, mesh e ripetizioni, con grafici e dati |
+| [`strumento-test/`](strumento-test/) | Specifica dello strumento di test della rete mesh (apparecchio a batteria con schermo, due ESP32-C5, GPS, scanner di spettro) |
 | [`reports/Analisi concorrenza illuminazione dinamica.md`](<reports/Analisi concorrenza illuminazione dinamica.md>) | Ricerca di mercato: concorrenti wireless e cablati, progetti realizzati, tecniche costruttive, prezzi, implicazioni per Versus Lux |
 | [`research_notes/Analisi concorrenza illuminazione dinamica/`](<research_notes/Analisi concorrenza illuminazione dinamica/>) | Note di ricerca dettagliate con tutte le fonti, per filone |
 | [`reports/Lumentalk dati su linea elettrica.md`](<reports/Lumentalk dati su linea elettrica.md>) | Approfondimento su Lumentalk (Lumenpulse) e sulle altre tecnologie dati su cavo di alimentazione, confronto con la mesh |

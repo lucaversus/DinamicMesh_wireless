@@ -1,6 +1,6 @@
 # Registro delle decisioni – Linea RGB architetturale wireless
 
-Aggiornato all'8 novembre 2026. Raccoglie in un posto solo le decisioni prese, il perché, i documenti di riferimento e cosa resta aperto. I dettagli tecnici sono nella [specifica](specifica-tecnica.md).
+Aggiornato al 9 novembre 2026. Raccoglie in un posto solo le decisioni prese, il perché, i documenti di riferimento e cosa resta aperto. I dettagli tecnici sono nella [specifica](specifica-tecnica.md).
 
 ## Decisioni prese
 
@@ -23,6 +23,7 @@ Aggiornato all'8 novembre 2026. Raccoglie in un posto solo le decisioni prese, i
 | 15 | 08/11/2026 | Coesistenza a 2,4 GHz: protocollo a stato che si ripara da solo, ripetizioni, scelta e cambio coordinato del canale, diagnostica continua | Le interferenze vanno tollerate, non evitate | Specifica, Coesistenza; simulazioni |
 | 16 | 08/11/2026 | Valori iniziali dalle simulazioni: inoltro mesh sempre attivo, 3 copie del coordinatore, 6 Mbps, rinfresco dello stato ogni 0,5-1 s, cambio canale automatico | Risultati Monte Carlo su facciata e ponte | [Simulazioni](simulazioni-coesistenza.md) |
 | 17 | 08/11/2026 | Gli spot motorizzati per interni (pan 360°, tilt 180°, fermo meccanico, nessuno slip ring) sono nodi della stessa rete | Stesso firmware, stessa app, stessa certificazione radio | Repository [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion) |
+| 18 | 09/11/2026 | Strumento di test della rete: un unico apparecchio a batteria in 6 esemplari identici, con schermo touch da 5", ESP32-S3 per interfaccia e due ESP32-C5 (nodo e monitor), scanner di spettro CC2500, GPS con PPS | Provare il firmware al banco, tarare il simulatore, fare il rilievo radio prima della vendita | [Strumento di test](../strumento-test/README.md) |
 
 ## Cosa hanno detto le analisi
 
@@ -51,7 +52,7 @@ Elenco completo nella sezione "Scelte aperte" della specifica. I più importanti
 2. Protezione del controllo dal vivo: inoltro mesh dei dati, copia locale nella zona disturbata, oppure abilitazione solo su canale verificato.
 3. Ponti: simulare e provare due coordinatori, uno per estremità.
 4. Conferma con il laboratorio: ESP-NOW come apparecchio adattivo per EN 300 328; autodichiarazione per EN 18031.
-5. Temperatura minima del modulo ESP32-C5 rispetto ai -40 °C dei concorrenti premium.
+5. ~~Temperatura minima del modulo ESP32-C5~~: chiuso il 9/11/2026, il modulo ESP32-C5-WROOM-1U funziona da -40 a +85 °C (datasheet Espressif). Restano da verificare gli altri componenti della scheda.
 6. Prezzi di progetto dei concorrenti italiani ed europei e di Lumenpulse (sede a Calenzano): richiedere preventivi.
 7. Frequenza PWM e risoluzione di dimming; protezione dalle sovratensioni (riferimento dei migliori: 10 kV).
 
