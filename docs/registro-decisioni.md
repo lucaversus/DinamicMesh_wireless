@@ -24,6 +24,7 @@ Aggiornato al 9 novembre 2026. Raccoglie in un posto solo le decisioni prese, il
 | 16 | 08/11/2026 | Valori iniziali dalle simulazioni: inoltro mesh sempre attivo, 3 copie del coordinatore, 6 Mbps, rinfresco dello stato ogni 0,5-1 s, cambio canale automatico | Risultati Monte Carlo su facciata e ponte | [Simulazioni](simulazioni-coesistenza.md) |
 | 17 | 08/11/2026 | Gli spot motorizzati per interni (pan 360°, tilt 180°, fermo meccanico, nessuno slip ring) sono nodi della stessa rete | Stesso firmware, stessa app, stessa certificazione radio | Repository [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion) |
 | 18 | 09/11/2026 | Strumento di test della rete: un unico apparecchio a batteria in 6 esemplari identici, con schermo touch da 5", ESP32-S3 per interfaccia e due ESP32-C5 (nodo e monitor), scanner di spettro CC2500, GPS con PPS | Provare il firmware al banco, tarare il simulatore, fare il rilievo radio prima della vendita | Repository [DinamicMesh_tester](https://github.com/lucaversus/DinamicMesh_tester) |
+| 19 | 09/11/2026 | I proiettori partono dalla sorgente Bridgelux Vesta RGBW D10/D13 (array con area luminosa unica da 10 o 13 mm, bianco CRI 95 regolabile 1800-10.000 K, lenti Moony 15-50°, anodo comune, NTC a bordo) | Scelta di Luca; è la migliore sorgente RGBW trovata, con supporto e ottiche già pronti | [Analisi Vesta](sorgente-bridgelux-vesta.md) |
 
 ## Cosa hanno detto le analisi
 

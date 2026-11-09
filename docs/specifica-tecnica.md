@@ -73,6 +73,8 @@ Proposta di partenza: una sola scheda nodo per tutta la linea, con modulo radio 
 | Protezioni | Scaricatori, sensore di temperatura con riduzione di potenza, IP66/IP67 | Scaricatori su alimentazione e linee dati, IP66 |
 | Memoria | Scene, sequenze e calendario in flash, doppia partizione firmware per OTA | Configurazione e mappatura canali |
 
+**Sorgente di partenza per i proiettori**: Bridgelux Vesta RGBW D10/D13 ([analisi](sorgente-bridgelux-vesta.md)). Ha l'anodo comune: lo stadio di uscita deve prevedere una tensione comune sull'anodo e un regolatore di corrente per canale sul negativo, lineare oppure buck con LED collegato all'ingresso. Tensioni dei canali: circa 20 V nel D10, 33-36 V nel D13. Va previsto anche l'ingresso per la NTC dell'array.
+
 Punto da verificare: il PWM interno dell'ESP32 non arriva a 16 bit ad alta frequenza. Per dimming fine senza flicker si valuta un driver PWM esterno o il dithering.
 
 Una sola scheda nodo per tutti gli apparecchi della linea: cambiano solo potenze, sorgenti LED e corpi. Così prove EMC e radio si fanno una volta per la famiglia di prodotti.
