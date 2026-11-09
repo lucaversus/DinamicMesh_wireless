@@ -260,7 +260,7 @@ Il software è composto da tre parti, sviluppabili con strumenti open source e s
 | Firmware bridge (opzionale) | Ingressi DMX/Art-Net/sACN, mappatura canali verso gruppi di nodi, server web dell'app, accesso internet tramite router dedicato | ESP-IDF (C), stessa base del nodo |
 | App di configurazione | Messa in servizio, editor scene e sequenze, calendario, mappa impianto, stato apparecchi | App web per smartphone, tablet e PC, servita dal coordinatore o dal bridge: nessuna installazione |
 
-**Ruoli nell'app.** Servono almeno due ruoli: installatore, con una credenziale propria, e cliente. Il primo uso è lo sblocco del blocco diurno, riservato all'installatore; vanno decisi gli altri permessi (messa in servizio, aggiornamenti, modifica di scene e calendario).
+**Ruoli nell'app.** Servono almeno due ruoli: installatore, con una credenziale propria, e cliente. Il primo uso è lo sblocco del blocco diurno, riservato all'installatore. Gli altri permessi (messa in servizio, aggiornamenti, modifica di scene e calendario) si definiscono durante lo sviluppo del software.
 
 Messa in servizio prevista: l'installatore accende gli apparecchi, apre l'app vicino a uno di essi e vede comparire tutti i nodi della rete. Ogni apparecchio lampeggia su richiesta per essere riconosciuto e viene assegnato a un gruppo sulla mappa dell'impianto; l'app genera le chiavi di cifratura dell'impianto.
 
@@ -325,6 +325,5 @@ Si parte da schede di sviluppo commerciali (ESP32-C5-DevKitC-1, circa 15 dollari
 - [ ] Coesistenza a 2,4 GHz: numero di ripetizioni, periodo di rinfresco dello stato, velocità radio e soglia di cambio canale, dopo la prova di interferenza (passo 4)
 - [ ] Conferma con il laboratorio che ESP-NOW rientra fra gli apparecchi adattivi secondo EN 300 328, anche nel controllo dal vivo
 - [ ] Modalità Long Range per i ponti lunghi e funzionamento di ESP-NOW a 5 GHz sull'ESP32-C5 (piano B), da verificare con prove
-- [ ] Ruoli nell'app (installatore e cliente), credenziali dell'installatore e permessi di ciascun ruolo
 - [ ] Soglie della protezione termica e del termostato hardware, dopo le prove termiche sul corpo reale (anche con il sole simulato)
 - [ ] Alimentazione a 48 V a tensione costante per i proiettori fissi, come negli spot motorizzati

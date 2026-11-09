@@ -68,8 +68,7 @@ Elenco completo nella sezione "Scelte aperte" della specifica. I più importanti
 6. Prezzi di progetto dei concorrenti italiani ed europei e di Lumenpulse (sede a Calenzano): richiedere preventivi.
 7. Frequenza PWM e risoluzione di dimming; protezione dalle sovratensioni (riferimento dei migliori: 10 kV).
 8. Sorgente e ottica: scegliere tra cella con emettitore RGBW + quinto LED e cluster di LED a colore singolo per i proiettori; qualificare il COB Guangmai RGBWA come variante economica; scegliere tra ambra diretto e PC-amber. Campioni e preventivi da chiedere elencati nel [report](../reports/COB%20LED%20multicolore%20e%20lenti.md).
-9. Ruoli nell'app (installatore e cliente) e credenziali dell'installatore: servono per il blocco diurno.
-10. Prove termiche della scheda luce: corpo IP66 al sole simulato a LED spento, accensione in quelle condizioni, avvio a -40 °C; da qui le soglie di protezione.
+9. Prove termiche della scheda luce: corpo IP66 al sole simulato a LED spento, accensione in quelle condizioni, avvio a -40 °C; da qui le soglie di protezione.
 
 ## Prossimi passi proposti
 
