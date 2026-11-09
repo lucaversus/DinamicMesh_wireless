@@ -84,6 +84,8 @@ Sotto i 15° non c'è niente. Per i fasci da 4 a 10° delle facciate alte e dei 
 
 Le lenti Moony sono in plastica: in un apparecchio IP66/67 vanno dietro il vetro frontale.
 
+**Alternativa LEDiL** ([analisi](ottiche-ledil-vesta.md)): le lenti AMY e YASMEEN sul supporto HEKLA-SOCKET-RZ coprono da 14° a 58°, più un ovale e un'asimmetrica per il wall-wash, con file fotometrici misurati. La proposta è AMY-70 per entrambe le taglie.
+
 ### 4. Temperatura e calibrazione
 
 La NTC a bordo è quella che serve per la compensazione del colore con la temperatura descritta nel report: si collega a un ingresso analogico della scheda nodo. I dati del foglio sono a 25 °C. A regime, rosso e bianco renderanno meno e le tabelle di miscela andranno corrette con misure nostre, fatte allo spettrometro a temperatura stabilizzata.

@@ -2,7 +2,7 @@
 
 Versus Lux · ricerca del 9 novembre 2026 · note complete e fonti in [`research_notes/COB LED multicolore e lenti/`](<../research_notes/COB%20LED%20multicolore%20e%20lenti/>)
 
-> **Aggiornamento del 9/11/2026.** Il report non includeva la **Bridgelux Vesta RGBW D10/D13**. È un array RGBW con area luminosa unica da 10 o 13 mm, bianco CRI 95 regolabile da 1800 a 10.000 K, lenti Moony da 15 a 50° e NTC a bordo. È stata scelta come sorgente di partenza per i proiettori: vedi l'[analisi dedicata](../docs/sorgente-bridgelux-vesta.md). Resta vero che nessun produttore di riferimento offre l'ambra a bordo.
+> **Aggiornamento del 9/11/2026.** Il report non includeva la **Bridgelux Vesta RGBW D10/D13**. È un array RGBW con area luminosa unica da 10 o 13 mm, bianco CRI 95 regolabile da 1800 a 10.000 K, lenti Moony da 15 a 50° e NTC a bordo. È stata scelta come sorgente di partenza per i proiettori: vedi l'[analisi dedicata](../docs/sorgente-bridgelux-vesta.md). Resta vero che nessun produttore di riferimento offre l'ambra a bordo. Dal catalogo LEDiL è emerso anche il **Lumileds LUXEON HL1Z RGBW array** (11 mm), alternativa da verificare. Le lenti per la Vesta sono nell'[analisi delle ottiche LEDiL](../docs/ottiche-ledil-vesta.md).
 
 ## In sintesi
 
