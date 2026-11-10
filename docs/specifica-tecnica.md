@@ -91,7 +91,7 @@ L'elettronica dell'apparecchio si divide in due schede:
 | Scheda nodo | Nel corpo o nel nodo esterno, vicino all'antenna | ESP32-C5, alimentazione, ricetrasmettitore RS-485. Negli spot motorizzati è la scheda motori, con in più i driver dei motori |
 | Scheda luce | Nel corpo, vicino al LED | Piccolo microcontrollore con PWM a 16 bit, **5 canali** buck a corrente costante (si montano solo quelli usati), NTC, memoria con identità e calibrazione della sorgente, protezione termica |
 
-- **Collegamento**: bus RS-485 a 2 fili più l'alimentazione.
+- **Collegamento**: bus RS-485 modulato sugli stessi due fili dell'alimentazione a 48 V (TI THVD8000, THVD8000T sulla scheda luce fino a 125 °C), quindi solo 2 conduttori fra le due schede. Decisione del 10/11/2026 nel progetto Spotlight_Motion, da confermare con una prova al banco. Ripiego: coppia RS-485 dedicata.
 - **Stessa scheda luce** per proiettori fissi e spot motorizzati: un solo progetto, un solo firmware, una sola famiglia di prove.
 - **Zoom motorizzato opzionale**: la scheda luce ha un terzo driver (TMC2209) per un piccolo motore che sposta l'ottica, montato solo nelle versioni zoom. Lo zoom è quindi disponibile anche sui proiettori fissi, senza scheda motori.
 - **Alimentazione proposta: 48 V a tensione costante.** La Vesta D13 lavora a 33-36 V per canale con anodo comune, quindi servono regolatori **buck della classe 60 V** (l'AL8860 si ferma a 40 V, serve la classe dell'AL8862).
