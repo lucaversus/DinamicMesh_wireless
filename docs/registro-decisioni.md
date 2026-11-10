@@ -29,6 +29,7 @@ Aggiornato al 9 novembre 2026. Raccoglie in un posto solo le decisioni prese, il
 | 21 | 09/11/2026 | Scheda luce a 5 canali, condivisa con gli spot motorizzati: nel corpo, con microcontrollore che genera il PWM a 16 bit, collegata alla scheda nodo via RS-485 | Un solo progetto per proiettori fissi e motorizzati; risolve il PWM a 16 bit | Specifica, Scheda luce condivisa; [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion) |
 | 22 | 09/11/2026 | I prodotti da esterni non si accendono mai di giorno; protezione termica su tre livelli (firmware, termostato hardware, blocco diurno) | Un'accensione sotto il sole surriscalderebbe la scheda | Specifica, Protezione termica e blocco diurno |
 | 23 | 09/11/2026 | Blocco diurno sbloccabile solo dall'installatore, per 10 minuti | Prove e manutenzione senza rischi | Specifica, Protezione termica e blocco diurno |
+| 24 | 10/11/2026 | Spot motorizzati: pan continuo con slip ring (in ogni snodo solo 48 V e massa, con i dati modulati sopra) e tilt 0–90°. Aggiorna la decisione 17 | Con il pan continuo 90° di tilt coprono tutta la semisfera sotto l'apparecchio, con metà della torsione dei fili | Repository [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion) |
 
 ## Cosa hanno detto le analisi
 
