@@ -91,6 +91,23 @@ Per una facciata in colore saturo i lux contano meno che in bianco. Nei colori i
 
 Se si sceglie AMY-70 per entrambe le taglie, il corpo frontale e il vetro sono gli stessi per D10 e D13. Cambiano solo l'array e la potenza.
 
+## Zoom: AMY-70-ZOOM da verificare
+
+Aggiornamento 9/11/2026, dal progetto [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion) (zoom motorizzato sulla scheda luce condivisa).
+
+LEDiL ha una famiglia **AMY-ZOOM** (25, 35, 45, 50 e 70 mm) con fascio regolabile in continuo, circa da 15° a 50°. Lo zoom si ottiene **ruotando** una parte dell'ottica, senza parti che si spostano lungo l'asse.
+
+- **AMY-70-ZOOM:**
+  - è ottimizzata per COB con area luminosa fino a 14,5 mm, quindi per entrambe le Vesta;
+  - con 10 mm (D10) il campo zoom è più ampio;
+  - si monta su supporti compatibili con gli zoccoli HEKLA.
+- **Vantaggio:** stesso diametro di 70 mm delle AMY-70 a fascio fisso, quindi stesso frontale per versioni fisse e zoom. Il motore zoom deve solo ruotare una ghiera.
+- **Da verificare con LEDiL:** nell'esportazione delle lenti per la miscelazione RGB non compare nessuna ottica zoom. Vanno chiesti:
+  - la compatibilità con la Vesta sul supporto HEKLA-SOCKET-RZ e la miscelazione del colore lungo il campo zoom;
+  - l'angolo e la coppia di rotazione.
+
+Fonte: [LEDiL, Zoom goes slim with AMY-ZOOM](https://www.ledil.com/news_all/zoom-goes-slim-with-amy-zoom/).
+
 ## Avvertenze
 
 - **Supporto.** HEKLA-SOCKET-RZ e il supporto Bridgelux BXHD-RGBW-D50-35-15 sono alternativi: con le lenti LEDiL si usa quello LEDiL.

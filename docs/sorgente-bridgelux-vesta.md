@@ -74,6 +74,8 @@ Le tensioni da considerare per l'alimentazione:
 
 Questo va riportato nella specifica, nella sezione Hardware.
 
+**Aggiornamento 9/11/2026.** Per la scheda luce condivisa con gli spot motorizzati si sceglie il **buck**, alimentato a 48 V: servono regolatori della classe 60 V (l'AL8860 si ferma a 40 V, serve la classe dell'AL8862). I lineari sono esclusi perché nel corpo chiuso, dove sta la scheda luce, i 4-5 W in più sono troppi. Dettagli nella specifica, sezione "Scheda luce condivisa con gli spot motorizzati".
+
 ### 3. Fasci
 
 Le lenti Moony coprono:

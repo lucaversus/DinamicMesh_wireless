@@ -31,6 +31,9 @@ Ogni apparecchio gestisce 5 canali PWM indipendenti, con la stessa elettronica p
 | Compatibilità | Ingresso DMX512, Art-Net e sACN sul bridge opzionale, con mappatura canali | Console e software esistenti |
 | Funzionamento autonomo | In assenza di rete il nodo mantiene l'ultima scena o la scena di sicurezza | Configurabile |
 | Configurazione | Indirizzamento, raggruppamento, diagnostica e aggiornamenti da app | Ecosistema proprietario |
+| Potenza | Al massimo 30 W per apparecchio, in tutte le tipologie; al massimo 5 canali con sorgenti Bridgelux | Per potenze maggiori si affiancano più apparecchi |
+| Accensione diurna | Gli apparecchi da esterni non si accendono mai di giorno: blocco diurno dal coordinatore | Sblocco di 10 minuti solo per l'installatore (vedi "Protezione termica e blocco diurno") |
+| Protezione termica | Riduzione e spegnimento del LED in caso di surriscaldamento, anche per accensione di giorno | Decisa in locale dalla scheda luce |
 
 ## Architettura di sistema
 
@@ -75,7 +78,43 @@ Proposta di partenza: una sola scheda nodo per tutta la linea, con modulo radio 
 
 **Sorgente di partenza per i proiettori**: Bridgelux Vesta RGBW D10/D13 ([analisi](sorgente-bridgelux-vesta.md)). Ha l'anodo comune: lo stadio di uscita deve prevedere una tensione comune sull'anodo e un regolatore di corrente per canale sul negativo, lineare oppure buck con LED collegato all'ingresso. Tensioni dei canali: circa 20 V nel D10, 33-36 V nel D13. Va previsto anche l'ingresso per la NTC dell'array.
 
-Punto da verificare: il PWM interno dell'ESP32 non arriva a 16 bit ad alta frequenza. Per dimming fine senza flicker si valuta un driver PWM esterno o il dithering.
+Punto da verificare: il PWM interno dell'ESP32 non arriva a 16 bit ad alta frequenza. Per dimming fine senza flicker si valuta un driver PWM esterno o il dithering. Con la scheda luce condivisa (sotto) il PWM a 16 bit lo genera il microcontrollore della scheda luce.
+
+### Scheda luce condivisa con gli spot motorizzati
+
+Decisione del 9/11/2026, presa nel progetto [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion) (documento `docs/07-architettura-schede.md` di quel repository).
+
+L'elettronica dell'apparecchio si divide in due schede:
+
+| Scheda | Dove | Contenuto |
+| --- | --- | --- |
+| Scheda nodo | Nel corpo o nel nodo esterno, vicino all'antenna | ESP32-C5, alimentazione, ricetrasmettitore RS-485. Negli spot motorizzati è la scheda motori, con in più i driver dei motori |
+| Scheda luce | Nel corpo, vicino al LED | Piccolo microcontrollore con PWM a 16 bit, **5 canali** buck a corrente costante (si montano solo quelli usati), NTC, memoria con identità e calibrazione della sorgente, protezione termica |
+
+- **Collegamento**: bus RS-485 modulato sugli stessi due fili dell'alimentazione a 48 V (TI THVD8000, THVD8000T sulla scheda luce fino a 125 °C), quindi solo 2 conduttori fra le due schede. Decisione del 10/11/2026 nel progetto Spotlight_Motion, da confermare con una prova al banco. Ripiego: coppia RS-485 dedicata.
+- **Stessa scheda luce** per proiettori fissi e spot motorizzati: un solo progetto, un solo firmware, una sola famiglia di prove.
+- **Zoom motorizzato opzionale**: la scheda luce ha un terzo driver (TMC2209) per un piccolo motore che sposta l'ottica, montato solo nelle versioni zoom. Lo zoom è quindi disponibile anche sui proiettori fissi, senza scheda motori.
+- **Alimentazione proposta: 48 V a tensione costante.** La Vesta D13 lavora a 33-36 V per canale con anodo comune, quindi servono regolatori **buck della classe 60 V** (l'AL8860 si ferma a 40 V, serve la classe dell'AL8862).
+- **Niente regolatori lineari**: scalderebbero troppo il corpo.
+- **Corrente proposta**: 1 A per canale, con la somma limitata a 30 W dal firmware.
+- **Componenti da -40 a +125 °C**: molti microcontrollori economici arrivano solo a 85 °C.
+- **Altre regole termiche**: solo condensatori ceramici sulla scheda luce, tropicalizzazione per gli esterni (documento `docs/08-termica.md` di [Spotlight_Motion](https://github.com/lucaversus/Spotlight_Motion)).
+
+### Protezione termica e blocco diurno
+
+I prodotti da esterni non si accendono mai di giorno. Di giorno la scheda luce si scalda solo per il sole e la radio (stima 60-75 °C); di notte, con il LED acceso, la stima è 70-85 °C. Un'accensione sotto il sole porterebbe la scheda oltre i 100 °C: l'apparecchio se ne protegge su tre livelli indipendenti.
+
+1. **Firmware della scheda luce**, attivo anche senza bus e senza rete. Soglie provvisorie, da tarare con le prove termiche:
+   - a 95 °C riduce la potenza del LED;
+   - a 105 °C, o con il LED oltre il limite di Tc, spegne il LED e segnala il motivo alla rete;
+   - si riaccende solo con un nuovo comando, dopo essere sceso sotto gli 80 °C, così non lampeggia al sole;
+   - se all'accensione serale il corpo è sopra gli 85 °C, parte a potenza ridotta.
+2. **Termostato hardware** sulla scheda luce: spegne i regolatori LED a circa 115 °C senza passare dal microcontrollore.
+3. **Blocco diurno** dal coordinatore, che conosce alba e tramonto per il calendario astronomico.
+   - Di giorno rifiuta i comandi di accensione e lo segnala all'app.
+   - **Solo l'installatore** può sbloccarlo dall'app, per **10 minuti**; allo scadere gli apparecchi si spengono.
+   - Ogni sblocco viene registrato nella diagnostica dell'impianto.
+   - La protezione termica resta sempre attiva.
 
 Una sola scheda nodo per tutti gli apparecchi della linea: cambiano solo potenze, sorgenti LED e corpi. Così prove EMC e radio si fanno una volta per la famiglia di prodotti.
 
@@ -222,6 +261,8 @@ Il software è composto da tre parti, sviluppabili con strumenti open source e s
 | Firmware bridge (opzionale) | Ingressi DMX/Art-Net/sACN, mappatura canali verso gruppi di nodi, server web dell'app, accesso internet tramite router dedicato | ESP-IDF (C), stessa base del nodo |
 | App di configurazione | Messa in servizio, editor scene e sequenze, calendario, mappa impianto, stato apparecchi | App web per smartphone, tablet e PC, servita dal coordinatore o dal bridge: nessuna installazione |
 
+**Ruoli nell'app.** Servono almeno due ruoli: installatore, con una credenziale propria, e cliente. Il primo uso è lo sblocco del blocco diurno, riservato all'installatore. Gli altri permessi (messa in servizio, aggiornamenti, modifica di scene e calendario) si definiscono durante lo sviluppo del software.
+
 Messa in servizio prevista: l'installatore accende gli apparecchi, apre l'app vicino a uno di essi e vede comparire tutti i nodi della rete. Ogni apparecchio lampeggia su richiesta per essere riconosciuto e viene assegnato a un gruppo sulla mappa dell'impianto; l'app genera le chiavi di cifratura dell'impianto.
 
 ## Certificazioni e normative
@@ -285,3 +326,5 @@ Si parte da schede di sviluppo commerciali (ESP32-C5-DevKitC-1, circa 15 dollari
 - [ ] Coesistenza a 2,4 GHz: numero di ripetizioni, periodo di rinfresco dello stato, velocità radio e soglia di cambio canale, dopo la prova di interferenza (passo 4)
 - [ ] Conferma con il laboratorio che ESP-NOW rientra fra gli apparecchi adattivi secondo EN 300 328, anche nel controllo dal vivo
 - [ ] Modalità Long Range per i ponti lunghi e funzionamento di ESP-NOW a 5 GHz sull'ESP32-C5 (piano B), da verificare con prove
+- [ ] Soglie della protezione termica e del termostato hardware, dopo le prove termiche sul corpo reale (anche con il sole simulato)
+- [ ] Alimentazione a 48 V a tensione costante per i proiettori fissi, come negli spot motorizzati
